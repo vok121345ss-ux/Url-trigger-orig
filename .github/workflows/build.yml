@@ -1,0 +1,44 @@
+
+name: Build URL Trigger
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - Android32
+          - Android64
+
+    steps:
+      - name: Download project
+        uses: actions/checkout@v4
+
+      - name: Build Geode mod
+        id: build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: ${{ matrix.target }}
+          sdk: given
+          cli: latest
+          build-config: Release
+          path: ./
+          android-min-sdk: 23
+          use-lto: true
+
+      - name: Save mod
+        uses: actions/upload-artifact@v4
+        with:
+          name: URL-Trigger-${{ matrix.target }}
+          path: ${{ steps.build.outputs.build-output }}/*.geode
+          if-no-files-found: error
+          retention-days: 14
+          
