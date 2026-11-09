@@ -1,26 +1,23 @@
+
 {
-	"geode": "5.11.2",
-	"gd": {
-		"win": "2.2081",
-		"android": "2.2081",
-		"mac": "2.2081",
-		"ios": "2.2081"
-	},
-	"version": "v1.1.0",
-	"id": "max.url-trigger",
-	"name": "URL Trigger",
-	"developer": "Max",
-	"description": "Opens a link when the player reaches a URL trigger or a marked Text object.",
-	"dependencies": {
-		"user95401.sprite-frames-unity": ">=v1.0.0",
-		"user95401.game-objects-factory": ">=v1.0.0"
-	},
-	"settings": {
-		"ask-before-open": {
-			"type": "bool",
-			"name": "Ask before opening",
-			"description": "Pause the level and ask for confirmation before opening a link. Recommended: levels can contain any link.",
-			"default": true
-		}
-	}
+  "geode": "5.11.2",
+  "gd": {
+    "win": "2.2081",
+    "android": "2.2081",
+    "mac": "2.2081",
+    "ios": "2.2081"
+  },
+  "version": "v1.1.0",
+  "id": "max.url-trigger",
+  "name": "URL Trigger",
+  "developer": "Max",
+  "description": "Opens a link when the player reaches a URL trigger or a marked Text object.",
+  "settings": {
+    "ask-before-open": {
+      "type": "bool",
+      "name": "Ask before opening",
+      "description": "Ask before opening a link.",
+      "default": true
+    }
+  }
 }
